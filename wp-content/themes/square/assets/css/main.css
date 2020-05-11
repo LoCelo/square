@@ -827,6 +827,14 @@ body {
   font-size: 55px;
 }
 
+.slick-next:after {
+  margin-right: -20px;
+}
+
+.slick-prev:after {
+  margin-left: -20px;
+}
+
 }
 
 @media only screen  and (max-width : 1250px) {
