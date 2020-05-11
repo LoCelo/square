@@ -846,12 +846,31 @@ body {
     padding-left: 0;
   }
 
+  .tab-pane .tax-title {
+    font-size: 32px;
+  }
+
+}
+
+@media only screen  and (max-width : 1200px) {
+
   .nav-tabs .nav-item {
     width: 33%;
   }
 
-  .tab-pane .tax-title {
-    font-size: 32px;
+  .nav-tabs .nav-item figure {
+    max-height: 160px;
+  }
+}
+
+@media only screen  and (max-width : 1000px) {
+
+  .nav-tabs .nav-item {
+    width: 33%;
+  }
+
+  .nav-tabs .nav-item figure {
+    max-height: 111px;
   }
 }
 
@@ -1164,6 +1183,10 @@ p img {
 
 .hero-images .row {
   margin: 0;
+}
+
+.nav-tabs .nav-item figure {
+    max-height: 135px;
 }
 
 }

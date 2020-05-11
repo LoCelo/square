@@ -92,6 +92,24 @@ include('partials/hero.php');
 </div>
 
 
+<script>
+jQuery(document).ready(function(){
+var width = jQuery(window).width();
+console.log(width);
+
+if (width < 758) {
+
+	jQuery('.nav-item').click(function() {
+	    jQuery([document.documentElement, document.body]).animate({
+	        scrollTop: jQuery(".tab-content").offset().top
+	    }, 2000);
+	});
+
+
+
+}
+})
+</script>
 <?php
 
 get_footer();
