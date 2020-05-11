@@ -200,10 +200,12 @@ header .burger-button {
 }
 
 .video-home video:focus,
-.testemunho:focus {
+.testemunho:focus,
+.testemunho-mobile:focus {
   outline: none !important;
 }
 
+.testemunho-mobile img,
 .testemunho img {
   max-width: 120px;
   max-height: 75px;
@@ -228,6 +230,7 @@ header .burger-button {
   font-weight: bold !important;
 }
 
+.testemunho-mobile h3,
 .testemunho h3 {
   color: #F63C3B;
   font-family: hero !important;
@@ -237,6 +240,7 @@ header .burger-button {
   flex-wrap: wrap;
 }
 
+.testemunho-mobile figure,
 .testemunho figure {
   height: 75px;
   justify-content: flex-start;
@@ -1035,7 +1039,7 @@ body {
 
 
 .burger-button.open {
-  top: 0;
+  top: 50px;
 }
 
 header.open {
@@ -1045,7 +1049,7 @@ header.open {
 }
 
 .output h1 {
-    font-size: 27px;
+    font-size: 35px;
     line-height: 48px;
 }
 
@@ -1057,6 +1061,16 @@ header.open {
 
 .about-home p {
   font-size: 18px !important;
+}
+
+.slick-next:after {
+  margin-right: 0;
+  width: 10px;
+}
+
+.slick-prev:after {
+  margin-left: 0;
+  width: 10px;
 }
 
 .testemunho {
@@ -1110,6 +1124,7 @@ header.open {
 .testemunhos-home-mobile {
   display: block;
   background: #EBECE6;
+  padding: 30px 0;
 }
 
 .content-testemunho {
