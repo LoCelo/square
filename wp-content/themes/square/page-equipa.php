@@ -95,7 +95,6 @@ include('partials/hero.php');
 <script>
 jQuery(document).ready(function(){
 var width = jQuery(window).width();
-console.log(width);
 
 if (width < 758) {
 
