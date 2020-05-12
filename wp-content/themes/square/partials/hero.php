@@ -1,12 +1,16 @@
 <?php
 
 $text = apply_filters( 'acf_the_content',  get_field('hero_text', $post->ID) );
-$teste = preg_match_all('#<h([1-6])>(.+?)</h\1>#is', $text, $matches);
-$highlights = array();
+$rewrite = get_field('rewrite_text');
 $background_color = get_field('background_color', $post->ID);
 $hero_color = get_field('hero_color', $post->ID);
 $invert = get_field('invert_logo_color', $post->ID);
 
+if (empty($rewrite)) {
+  $finish_hero = '|';
+}else {
+  $finish_hero = '';
+}
 
 foreach ($matches[0] as $key => $match) {
   array_push($highlights, $match);
@@ -17,7 +21,7 @@ $hero_text = strip_tags($text);
 ?>
 <div class="hero-wrapper container-fluid" style="background-color: <?php echo $background_color; ?>">
         <div class="row">
-            <div class="container hero" data-text="<?php echo $hero_text; ?>" data-highlights="<?php foreach ($highlights as $highlight): echo strip_tags($highlight).','; endforeach;?>">
+            <div class="container hero" data-text="<?php echo $hero_text . $finish_hero; ?>" data-rewrite="<?php echo strip_tags($rewrite) . '|';?>">
               <div class="row">
               <div class="output" id="output" style="color: <?php echo $hero_color; ?>">
                 <h1 class="cursor"></h1>

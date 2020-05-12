@@ -75,14 +75,14 @@ acf_add_local_field_group(array(
 		),
 		array(
 			'key' => 'field_5e9b317d8d756',
-			'label' => 'Hero text',
+			'label' => 'Text to Rewrite',
 			'name' => 'hero_text',
 			'type' => 'wysiwyg',
 			'instructions' => '',
 			'required' => 1,
 			'conditional_logic' => 0,
 			'wrapper' => array(
-				'width' => '',
+				'width' => '50',
 				'class' => '',
 				'id' => '',
 			),
@@ -92,6 +92,25 @@ acf_add_local_field_group(array(
 			'media_upload' => 1,
 			'delay' => 0,
 		),
+		array(
+			'key' => 'field_5ebaf0c30354f',
+			'label' => 'Rewrite Text',
+			'name' => 'rewrite_text',
+			'type' => 'wysiwyg',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '50',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'tabs' => 'all',
+			'toolbar' => 'full',
+			'media_upload' => 1,
+			'delay' => 0,
+			),
 	),
 	'location' => array(
 		array(

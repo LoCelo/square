@@ -2,21 +2,9 @@ jQuery(document).ready(function(){
 
 
 var texto = jQuery(".hero").attr("data-text");
+var texto2 = jQuery(".hero").attr("data-rewrite");
 
 if(texto){
-
-function highlight_spans(highlight){
-  $(".cursor#text:contains('"+highlight+"')").html(function(_, html) {
-   return html.split(highlight).join("<span class='smallcaps'>"+highlight+"</span>");
-});
- }
-
-
-function add_highlights(highlights){
-  jQuery.each(highlights, function( index ) {
-    highlight_spans(index);
-});
-}
 
 // values to keep track of the number of letters typed, which quote to use. etc. Don't change these values.
 var i = 0,
@@ -25,16 +13,17 @@ var i = 0,
     isParagraph = false;
 
 // Typerwrite text content. Use a pipe to indicate the start of the second line "|".
-var textArray = [texto];
+var textArray = [texto, texto2];
 
 // Speed (in milliseconds) of typing.
-var speedForward = 100, //Typing Speed
+var speedForward = 30, //Typing Speed
     speedWait = 1000, // Wait between typing and backspacing
     speedBetweenLines = 1000, //Wait between first and second lines
     speedBackspace = 25; //Backspace Speed
 
 //Run the loop
-typeWriter("output", textArray);
+typeWriter("output", textArray, stop);
+
 
 function typeWriter(id, ar) {
   var element = jQuery("#" + id),
@@ -50,11 +39,12 @@ function typeWriter(id, ar) {
 
       // If character about to be typed is a pipe, switch to second line and continue.
       if (aString.charAt(i) == "|") {
-        isParagraph = true;
+        stop = true;
         eHeader.removeClass("cursor");
-        eParagraph.addClass("cursor");
-        i++;
-        setTimeout(function(){ typeWriter(id, ar); }, speedBetweenLines);
+        isBackspacing = false;
+        eHeader.removeClass("cursor");
+        clearTimeout();
+
 
       // If character isn't a pipe, continue typing.
       } else {
@@ -70,29 +60,37 @@ function typeWriter(id, ar) {
       }
 
     // If full string has been typed, switch to backspace mode.
-    } else if (i == aString.length) {
+      } else if (i == aString.length) {
 
-      isBackspacing = false;
-      eHeader.removeClass("cursor");
-      clearTimeout();
-    }
+      if (stop == true) {
+        isBackspacing = false;
+        eHeader.removeClass("cursor");
+        clearTimeout();
+      }else{
+        isBackspacing = true;
+        setTimeout(function(){ typeWriter(id, ar); }, speedWait);
+      }
+      }
 
   // If backspacing is enabled
   } else {
 
     // If either the header or the paragraph still has text, continue backspacing
-    if (eHeader.text().length > 0 || eParagraph.text().length > 0) {
+    if (eHeader.text().length > 0 ) {
 
       // If paragraph still has text, continue erasing, otherwise switch to the header.
-      if (eParagraph.text().length > 0) {
-        eParagraph.text(eParagraph.text().substring(0, eParagraph.text().length - 1));
-      } else if (eHeader.text().length > 0) {
+      // if (eParagraph.text().length > 0) {
+      //   eParagraph.text(eParagraph.text().substring(0, eParagraph.text().length - 1));
+      // } else
+      if (eHeader.text().length > 0) {
         eParagraph.removeClass("cursor");
         eHeader.addClass("cursor");
         eHeader.text(eHeader.text().substring(0, eHeader.text().length - 1));
       }
-      setTimeout(function(){ typeWriter(id, ar); }, speedBackspace);
-
+      var stop = true;
+      setTimeout(function(){ typeWriter(id, ar, stop = true); }, speedBackspace);
+      // eHeader.removeClass("cursor");
+      // clearTimeout();
 
 
 
@@ -104,6 +102,9 @@ function typeWriter(id, ar) {
       isParagraph = false;
       a = (a + 1) % ar.length; //Moves to next position in array, always looping back to 0
       setTimeout(function(){ typeWriter(id, ar); }, 50);
+      eHeader.removeClass("cursor");
+      clearTimeout();
+      var textArray = '';
 
     }
   }
