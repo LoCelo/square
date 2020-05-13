@@ -16,7 +16,7 @@ var i = 0,
 var textArray = [texto, texto2];
 
 // Speed (in milliseconds) of typing.
-var speedForward = 30, //Typing Speed
+var speedForward = 80, //Typing Speed
     speedWait = 1000, // Wait between typing and backspacing
     speedBetweenLines = 1000, //Wait between first and second lines
     speedBackspace = 25; //Backspace Speed
@@ -101,10 +101,10 @@ function typeWriter(id, ar) {
       i = 0;
       isParagraph = false;
       a = (a + 1) % ar.length; //Moves to next position in array, always looping back to 0
-      setTimeout(function(){ typeWriter(id, ar); }, 50);
-      eHeader.removeClass("cursor");
-      clearTimeout();
-      var textArray = '';
+      setTimeout(function(){ typeWriter(id, ar); }, speedForward);
+      // eHeader.removeClass("cursor");
+      // clearTimeout();
+      // var textArray = '';
 
     }
   }

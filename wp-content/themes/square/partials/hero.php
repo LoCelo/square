@@ -26,7 +26,7 @@ $hero_text = strip_tags($text);
               </div>
               <div class="row text-center">
                 <div class="col-md-12 scroll-wrapper">
-                  <span class="scroll <?php if($invert == 'yes'): echo 'invert'; else: ''; endif; ?>"><img src="<?php echo get_template_directory_uri() . '/assets/img/arrow_down.svg'; ?>" alt="scroll_icon" width="25"></span>
+                  <span class="scroll <?php if($invert == 'yes' || is_page(744)): echo 'invert'; else: ''; endif; ?>"><img src="<?php echo get_template_directory_uri() . '/assets/img/arrow_down.svg'; ?>" alt="scroll_icon" width="25"></span>
                 </div>
               </div>
             </div>

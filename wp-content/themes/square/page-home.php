@@ -142,46 +142,7 @@ include('partials/hero.php');
 get_footer();
 ?>
 
-<script>
 
-jQuery(".read-more").click(function() {
-  var button = jQuery(this);
-  var target = button.attr('data-toggle');
-  readMore(target);
-  button.animate({
-    height: 'hide'
-  });
-  jQuery(".read-less-"+target).animate({
-    height: 'show'
-  });
-});
-
-jQuery(".read-less").click(function() {
-  var button = jQuery(this);
-  var target = button.attr('data-toggle');
-  readLess(target);
-  button.animate({
-    height: 'hide'
-  });
-  jQuery(".read-more-"+target).animate({
-    height: 'show'
-  });
-});
-
-function readMore(target){
-  jQuery("."+target).animate({
-    height: 'show'
-  });
-}
-
-function readLess(target){
-  jQuery("."+target).animate({
-    height: 'hide'
-  });
-}
-
-
-</script>
 <script>
 jQuery( document ).ready(function() {
 jQuery('.slider').slick({
@@ -225,5 +186,45 @@ jQuery('.slider-mobile').slick({arrows: true});
 
 
 });
+
+</script>
+<script>
+
+jQuery(".read-more").click(function() {
+  var button = jQuery(this);
+  var target = button.attr('data-toggle');
+  readMore(target);
+  button.animate({
+    height: 'hide'
+  });
+  jQuery(".read-less-"+target).animate({
+    height: 'show'
+  });
+});
+
+jQuery(".read-less").click(function() {
+  var button = jQuery(this);
+  var target = button.attr('data-toggle');
+  readLess(target);
+  button.animate({
+    height: 'hide'
+  });
+  jQuery(".read-more-"+target).animate({
+    height: 'show'
+  });
+});
+
+function readMore(target){
+  jQuery("."+target).animate({
+    height: 'show'
+  });
+}
+
+function readLess(target){
+  jQuery("."+target).animate({
+    height: 'hide'
+  });
+}
+
 
 </script>

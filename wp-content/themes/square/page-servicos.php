@@ -41,6 +41,8 @@ $projetos = new WP_Query($args);
 
   <?php  endforeach; ?>
   </div>
+  </div>
+  <div class="container projects">
   <?php
     if ($projetos->have_posts()):
 
@@ -60,7 +62,7 @@ $projetos = new WP_Query($args);
             <div class="col-md-6 project-wrapper">
               <a href="<?php echo get_the_permalink(get_the_ID()); ?>">
                 <figure class="thumb">
-                  <?php echo get_the_post_thumbnail(get_the_ID(), 'thumb'); ?>
+                  <?php echo get_the_post_thumbnail(get_the_ID(), 'medium_large'); ?>
                 </figure>
                 <strong><?php echo get_field('client', get_the_ID()); ?></strong>
                 <h3><?php echo get_the_title(get_the_ID()); ?></h3>
@@ -91,41 +93,5 @@ $projetos = new WP_Query($args);
   </div>
 <?php endif; ?>
   </div>
-<script type="text/javascript">
-jQuery(document).ready(function(){
-
-jQuery('.load-more').click(function() {
-    var page = jQuery('.services .projects-tax').last().attr('data-page');
-    var maxPage = jQuery('.services .projects-tax').last().attr('data-max-page');
-    var pageNumber = parseInt(page) + 1;
-    if (pageNumber < maxPage ) {
-      get_more(pageNumber);
-    }else if(pageNumber == maxPage ) {
-      get_more(pageNumber);
-      jQuery('.load-more').hide();
-    }else{
-      jQuery('.load-more').hide();
-    }
-});
-
-
-
-function get_more(page){
-
-    jQuery.ajax({
-      type: 'GET',
-      url: square.adminAjax,
-      data: { action: 'CCAjax', request: 'get_more', page: page },
-      timeout: 1000000,
-      beforeSend: function() {
-      },
-      success: function(result) {
-        jQuery('.projects-tax').append(result);
-      },
-      error: function(){
-      }
-    });
-  }
-  })
-</script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() . '/assets/js/projects.js'; ?>"></script>
 <?php get_footer(); ?>
