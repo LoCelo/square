@@ -4,7 +4,9 @@
   <div class="row">
     <div class="col-md-12">
       <h2 class="tax-title"><?php echo get_the_title($post->ID); ?> </h2>
-      <?php echo get_the_post_thumbnail(get_the_ID()); ?>
+      <figure class="single-thumb">
+        <?php echo get_the_post_thumbnail(get_the_ID()); ?>
+      </figure>
     </div>
     <div class="row">
       <div class="col-md-12 content">

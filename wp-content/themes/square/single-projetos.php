@@ -3,7 +3,7 @@
 <div class="container mt-5 mb-5 pt-2 pb-2">
   <div class="row">
     <div class="col-md-12">
-        <figure>
+        <figure class="single-thumb">
             <?php echo get_the_post_thumbnail(get_the_ID(), 'large'); ?>
         </figure>
         <strong><?php echo get_field('client', get_the_ID()); ?></strong>
