@@ -12,10 +12,6 @@ if (empty($rewrite)) {
   $finish_hero = '';
 }
 
-foreach ($matches[0] as $key => $match) {
-  array_push($highlights, $match);
-}
-
 $hero_text = strip_tags($text);
 
 ?>

@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-md-12 content">
       <?php
-        echo aplly_filters('the_content', get_the_content(get_the_ID()));
+        echo apply_filters('the_content', get_the_content(get_the_ID()));
       ?>
       </div>
     </div>

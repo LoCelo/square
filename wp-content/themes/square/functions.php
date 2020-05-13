@@ -59,7 +59,6 @@ include 'includes/equipa.php';
 include 'includes/projetos.php';
 include 'includes/general-fields.php';
 include 'includes/testemunhos.php';
-include 'includes/parceiros.php';
 include 'includes/helper.php';
 
 function wpse_hide_cat_descr() { ?>
