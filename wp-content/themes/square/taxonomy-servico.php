@@ -6,9 +6,9 @@ $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' 
 $projetos = get_posts([
   'post_type' => 'projetos',
   'post_status' => 'publish',
-  'posts_per_page' => -1,
-  'orderby' => 'date',
-  'order' => 'DESC',
+  'posts_per_page' => 14,
+  'orderby' => 'menu_order',
+  'order' => 'ASC',
   'tax_query' => array(
     array(
       'taxonomy' => $term->taxonomy,
