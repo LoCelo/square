@@ -32,6 +32,25 @@ acf_add_local_field_group(array(
 	'title' => 'Descrição do Serviço',
 	'fields' => array(
     array(
+			'key' => 'field_5ebeedf78d20b',
+			'label' => 'Display Title',
+			'name' => 'display_title',
+			'type' => 'textarea',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'maxlength' => '',
+			'rows' => 4,
+			'new_lines' => 'br',
+		),
+    array(
 			'key' => 'field_5ea9f798f3799',
 			'label' => 'Title Color',
 			'name' => 'title_color',

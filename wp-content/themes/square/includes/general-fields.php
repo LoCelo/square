@@ -44,21 +44,6 @@ acf_add_local_field_group(array(
 			'default_value' => '#FFFFFF',
 		),
 		array(
-			'key' => 'field_5eb004217667e',
-			'label' => 'Highlight Color',
-			'name' => 'highlight_color',
-			'type' => 'color_picker',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '33',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '#F63C3B',
-		),
-		array(
 			'key' => 'field_5e9b321113b96',
 			'label' => 'Background Color',
 			'name' => 'background_color',
@@ -74,13 +59,72 @@ acf_add_local_field_group(array(
 			'default_value' => 'black',
 		),
 		array(
+			'key' => 'field_5ebed10b03d90',
+			'label' => 'Hero animation',
+			'name' => 'hero_animation',
+			'type' => 'button_group',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '33',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'type' => 'Typewritting Effect',
+				'highlight' => 'Words with Highlights',
+			),
+			'allow_null' => 0,
+			'default_value' => 'type',
+			'layout' => 'horizontal',
+			'return_format' => 'value',
+		),
+		array(
+		'key' => 'field_5ebed20bcefd4',
+		'label' => 'Animation Time',
+		'name' => 'animation_time',
+		'type' => 'number',
+		'instructions' => 'Timiming for the typewritting text in miliseconds',
+		'required' => 0,
+		'conditional_logic' => array(
+			array(
+				array(
+					'field' => 'field_5ebed10b03d90',
+					'operator' => '==',
+					'value' => 'type',
+				),
+			),
+		),
+		'wrapper' => array(
+			'width' => '60',
+			'class' => '',
+			'id' => '',
+		),
+		'default_value' => 80,
+		'placeholder' => '',
+		'prepend' => '',
+		'append' => '',
+		'min' => 50,
+		'max' => 180,
+		'step' => 1,
+	),
+		array(
 			'key' => 'field_5e9b317d8d756',
 			'label' => 'Text to Rewrite',
 			'name' => 'hero_text',
 			'type' => 'wysiwyg',
 			'instructions' => '',
 			'required' => 1,
-			'conditional_logic' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5ebed10b03d90',
+						'operator' => '==',
+						'value' => 'type',
+					),
+				),
+			),
 			'wrapper' => array(
 				'width' => '50',
 				'class' => '',
@@ -98,8 +142,16 @@ acf_add_local_field_group(array(
 			'name' => 'rewrite_text',
 			'type' => 'wysiwyg',
 			'instructions' => '',
-			'required' => 1,
-			'conditional_logic' => 0,
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5ebed10b03d90',
+						'operator' => '==',
+						'value' => 'type',
+					),
+				),
+			),
 			'wrapper' => array(
 				'width' => '50',
 				'class' => '',
@@ -111,6 +163,56 @@ acf_add_local_field_group(array(
 			'media_upload' => 1,
 			'delay' => 0,
 			),
+		array(
+			'key' => 'field_5eb004217667e',
+			'label' => 'Highlight Color',
+			'name' => 'highlight_color',
+			'type' => 'color_picker',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5ebed10b03d90',
+						'operator' => '==',
+						'value' => 'highlight',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '33',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '#F63C3B',
+		),
+		array(
+			'key' => 'field_5ebed1d51c316',
+			'label' => 'Hero Text',
+			'name' => 'hero_highlight_text',
+			'type' => 'wysiwyg',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_5ebed10b03d90',
+						'operator' => '==',
+						'value' => 'highlight',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'tabs' => 'all',
+			'toolbar' => 'full',
+			'media_upload' => 1,
+			'delay' => 0,
+		),
 	),
 	'location' => array(
 		array(
@@ -139,6 +241,13 @@ acf_add_local_field_group(array(
 				'param' => 'post_template',
 				'operator' => '==',
 				'value' => 'page-social.php',
+			),
+		),
+		array(
+			array(
+				'param' => 'post_template',
+				'operator' => '==',
+				'value' => 'page-servicos.php',
 			),
 		),
 	),

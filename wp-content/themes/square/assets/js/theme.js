@@ -3,7 +3,7 @@ jQuery(document).ready(function(){
 
 var texto = jQuery(".hero").attr("data-text");
 var texto2 = jQuery(".hero").attr("data-rewrite");
-
+var speed = parseInt(jQuery(".hero").attr('data-speed'));
 if(texto){
 
 // values to keep track of the number of letters typed, which quote to use. etc. Don't change these values.
@@ -16,7 +16,7 @@ var i = 0,
 var textArray = [texto, texto2];
 
 // Speed (in milliseconds) of typing.
-var speedForward = 80, //Typing Speed
+var speedForward = speed, //Typing Speed
     speedWait = 1000, // Wait between typing and backspacing
     speedBetweenLines = 1000, //Wait between first and second lines
     speedBackspace = 25; //Backspace Speed

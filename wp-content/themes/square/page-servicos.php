@@ -2,6 +2,93 @@
 
 
 get_header();
+?>
+
+<style media="screen">
+
+.all-services a img {
+    opacity: 0.85;
+    filter: grayscale(0);
+  }
+
+  .all-services a {
+  }
+
+  .service-all-shape:nth-child(1) img,
+  .service-all-shape:nth-child(4) img{
+    width: 55%;
+  }
+
+  .service-all-shape:nth-child(1), .service-all-shape:nth-child(3) {
+    margin-left: unset;
+  }
+
+  .service-all-shape.col-md-6.shape-1 {
+      right: -10%;
+      margin-top: -6%;
+  }
+
+.service-all-shape.col-md-6.shape-2 {
+    right: -25%;
+    margin-top: -19%;
+}
+
+.service-all-shape.col-md-12.text-center.shape-3 {
+    margin-top: -29%;
+    right: -22%;
+}
+
+  .service-all-shape:nth-child(2) img,
+  .service-all-shape:nth-child(3) img{
+    width: 110%;
+  }
+
+  .service-all-shape:nth-child(2) img {
+    width: 110%;
+  }
+
+  .service-all-shape:nth-child(4) img {
+    width: 65%;
+  }
+
+  .service-all-shape.col-md-12.text-center.shape-0 {
+    left: -5%;
+    margin-bottom: -11%;
+}
+
+  .service-all-shape a h3 {
+    font-family: textBold;
+    font-size: 37px;
+    text-align: left !important;
+  }
+
+  .service-all-shape a:hover h3 {
+    color: white !important;
+  }
+
+  .service-all-shape.col-md-12.text-center.shape-0 a h3 {
+    margin-top: 10%;
+    margin-left: 35%;
+  }
+
+  .service-all-shape.shape-1 a h3 {
+    margin-top: 54%;
+  }
+
+  .service-all-shape.shape-3 a h3 {
+    margin-top: 35%;
+    margin-left: 49%;
+  }
+
+  .service-all-shape.shape-2 a h3 {
+    margin-top: 44%;
+    margin-left: 47%;
+  }
+
+</style>
+
+<?php
+include 'partials/hero.php';
 
 $servicos = get_terms(array(
   'taxonomy' => 'servico',
@@ -31,10 +118,18 @@ $projetos = new WP_Query($args);
   </div>
   <div class="row all-services">
 <?php
-    foreach ($servicos as $key => $servico) : ?>
-      <div class="col-md-6 service-all-shape">
+    foreach ($servicos as $key => $servico) :
+
+        if($key == 1 || $key == 2):
+          $class = 'col-md-6 shape-' . $key;
+        else:
+          $class = 'col-md-12 text-center shape-' . $key;
+        endif;
+      ?>
+
+      <div class="service-all-shape <?php echo $class; ?>">
         <a href="<?php echo home_url() . '/servico/' . $servico->slug;?> ">
-          <h3><?php echo $servico->name; ?></h3>
+          <h3 style="color: <?php echo get_field('title_color', $servico); ?>"><?php echo get_field('display_title', $servico); ?></h3>
           <img src="<?php echo get_field('shape', $servico); ?>" alt="">
         </a>
       </div>
