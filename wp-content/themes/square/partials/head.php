@@ -31,12 +31,151 @@ endif;
         <meta name="twitter:title" content="<?php if(is_front_page() ): bloginfo( 'name' ); elseif(is_tax()): echo $term->name . ' - The Square'; else: echo get_the_title($post->ID) . ' - The Square'; endif; ?>" />
         <meta name="twitter:image" content="<?php echo $thumbnail; ?>" />
         <meta name="format-detection" content="telephone=no">
-    <?php
-      $invert = get_field('invert_logo_color', $post->ID);
+        <?php
+        if(!empty(get_field('highlight_color', $post->ID))):
+          $highlight_color = get_field('highlight_color', $post->ID);
+        else:
+          $highlight_color = '#F63C3B';
+        endif;
 
-      if($invert == 'yes'){
-        echo '<style>.menu li.current_page_item a { color: black;}</style>';
-      }
+        ?>
 
-      ?>
+      <style media="screen">
+        a:hover {
+          cursor: pointer
+        }
+
+        .social-elevator {
+          position: fixed;
+          right: 0;
+          margin-top: 35%;
+          width: 45px;
+          z-index: 99999999999;
+        }
+
+        .social-elevator a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 13px 10px;
+          background: #F63C3B;
+          margin: 3px 0;
+        }
+
+        .social-elevator a:nth-child(1) {
+          background: #2B2B2B;
+        }
+
+        .social-elevator a img {
+          display: block;
+          width: 100%;
+          object-fit: contain;
+          max-height: 18px;
+        }
+
+        .social-elevator a:hover {
+          opacity: 0.88;
+        }
+
+        .hero strong {
+          background: linear-gradient(to left, transparent 0%, <?php echo $highlight_color; ?> 0%);
+          background-repeat: no-repeat;
+          background-position: -100% 0%;
+          background-size: 1px 2px;
+          font-family: hero;
+          transition: background-size 7s, background-position 7s ease-in .7s;
+          -moz-transition: background-size .7s, background-position .7s ease-in .7s;
+          -ms-transition: background-size .7s, background-position .7s ease-in .7s;
+          -o-transition: background-size .7s, background-position .7s ease-in .7s;
+          -webkit-transition: background-size .7s, background-position .7s ease-in .7s;
+        }
+
+        .hero strong.highlight {
+          background-size: 100% 100%;
+          background-position: 0% 0%;
+          transition: background-size 7s, background-position 7s ease-in .7s;
+          -moz-transition: background-size .7s, background-position .7s ease-in .7s;
+          -ms-transition: background-size .7s, background-position .7s ease-in .7s;
+          -o-transition: background-size .7s, background-position .7s ease-in .7s;
+          -webkit-transition: background-size .7s, background-position .7s ease-in .7s;
+        }
+
+        .posts {
+          padding: 50px 20px;
+        }
+
+        .post figure img {
+          width: 100%;
+          height: auto;
+        }
+
+        .post h3 {
+          font-family: hero;
+          font-size: 35px;
+          padding-bottom: 20px;
+          transition: all .4s ease;
+        }
+
+        .post a {
+          display: block;
+          color: #2B2B2B;
+          font-family: textBold;
+        }
+
+        .post a:hover {
+          text-decoration: none;
+        }
+
+        .post a:hover > h3 {
+          color: #F63C3B;
+        }
+
+        .post a p {
+          font-family: text !important;
+        }
+
+        .single-content a {
+          color: #F63C3B;
+        }
+
+        .single-content p {
+          font-size: 20px;
+          line-height: 34px;
+        }
+
+        .single-content a:hover {
+          color: #F63C3B;
+          text-decoration: none;
+        }
+
+      </style>
+      <?php
+        $invert = get_field('invert_logo_color', $post->ID); ?>
+
+
+      <?php  if ( is_page(774) || $invert == 'yes') {?>
+          <style>
+          .social-elevator a {
+            background: <?php echo get_field('hero_color', $post->ID); ?> !important;
+          }
+          .social-elevator a:nth-child(1) {
+            background: white !important;
+          }
+          .socail-elevator a img {
+            filter: invert(1);
+          }
+
+          .socail-elevator a img {
+            filter: invert(0);
+          }
+          <?php
+          if($invert == 'yes'){ ?>
+            .menu li.current_page_item a {
+              color: black;
+            }
+          </style>
+          <?php } } ?>
+
+
+
 </head>

@@ -1,9 +1,13 @@
 jQuery(document).ready(function(){
 
-
+var animation = jQuery(".hero").attr("data-animation");
 var texto = jQuery(".hero").attr("data-text");
 var texto2 = jQuery(".hero").attr("data-rewrite");
 var speed = parseInt(jQuery(".hero").attr('data-speed'));
+
+
+if(animation == 'type'){
+
 if(texto){
 
 // values to keep track of the number of letters typed, which quote to use. etc. Don't change these values.
@@ -115,6 +119,15 @@ jQuery(".scroll").click(function() {
         scrollTop: jQuery(".content").offset().top
     }, 2000);
 });
+
+}
+
+}else{
+
+  var textoHigh = jQuery(".hero strong").unwrap('<strong />');
+  var textoHigh = jQuery(".hero strong");
+  setTimeout(function(){ textoHigh.toggleClass('highlight') }, speed);
+
 
 }
 

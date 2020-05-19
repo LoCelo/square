@@ -41,7 +41,7 @@ acf_add_local_field_group(array(
 				'class' => '',
 				'id' => '',
 			),
-			'default_value' => '#FFFFFF',
+			'default_value' => '#2B2B2B',
 		),
 		array(
 			'key' => 'field_5e9b321113b96',
@@ -56,7 +56,7 @@ acf_add_local_field_group(array(
 				'class' => '',
 				'id' => '',
 			),
-			'default_value' => 'black',
+			'default_value' => '#2B2B2B',
 		),
 		array(
 			'key' => 'field_5ebed10b03d90',
@@ -518,6 +518,164 @@ acf_add_local_field_group(array(
 	'hide_on_screen' => array(
 		0 => 'the_content',
 	),
+	'active' => true,
+	'description' => '',
+));
+
+endif;
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array(
+	'key' => 'group_5ec276d494c89',
+	'title' => 'Article Fields',
+	'fields' => array(
+		array(
+			'key' => 'field_5ec277d6b30f6',
+			'label' => 'Subtitle',
+			'name' => 'subtitle',
+			'type' => 'textarea',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'maxlength' => '',
+			'rows' => 5,
+			'new_lines' => 'br',
+		),
+		array(
+			'key' => 'field_5ec276d89c1f6',
+			'label' => 'Author',
+			'name' => 'author',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'post',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'acf_after_title',
+	'style' => 'seamless',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => array(
+		0 => 'categories',
+		1 => 'tags',
+	),
+	'active' => true,
+	'description' => '',
+));
+
+endif;
+
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array(
+	'key' => 'group_5ec2896966872',
+	'title' => 'Social Media',
+	'fields' => array(
+		array(
+			'key' => 'field_5ec289733be71',
+			'label' => 'Social Media Profiles',
+			'name' => 'social_profiles',
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 1,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => '',
+			'min' => 0,
+			'max' => 0,
+			'layout' => 'row',
+			'button_label' => 'Add Profile',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_5ec289d3ce35b',
+					'label' => 'Logo',
+					'name' => 'logo',
+					'type' => 'image',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '50',
+						'class' => '',
+						'id' => '',
+					),
+					'return_format' => 'url',
+					'preview_size' => 'medium',
+					'library' => 'all',
+					'min_width' => '',
+					'min_height' => '',
+					'min_size' => '',
+					'max_width' => '',
+					'max_height' => '',
+					'max_size' => '',
+					'mime_types' => '',
+				),
+				array(
+					'key' => 'field_5ec289e2ce35c',
+					'label' => 'Link',
+					'name' => 'link',
+					'type' => 'url',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '50',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => 'theme-general-settings',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'acf_after_title',
+	'style' => 'seamless',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
 	'active' => true,
 	'description' => '',
 ));

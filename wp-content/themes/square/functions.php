@@ -22,7 +22,7 @@ add_action('wp_enqueue_scripts', 'theme_js');
 
 add_theme_support( 'post-thumbnails' );
 add_image_size('equipa', 290, 282, false);
-add_image_size('thumb', 540, 360, true);
+add_image_size('projetos_thumb', 540, 303, true);
 
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
@@ -107,7 +107,7 @@ function my_mce_before_init_insert_formats( $init_array ) {
     ),
     array(
     	'title' => 'Highlight',
-    	'block' => 'span',
+    	'block' => 'strong',
     	'classes' => 'highlight',
     	'exact' => false
     ),
@@ -130,6 +130,17 @@ function cd_add_editor_styles() {
   add_editor_style(get_template_directory_uri() . '/assets/css/main.css');
 }
 
+if( function_exists('acf_add_options_page') ) :
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Social Media',
+		'menu_title'	=> 'Social Media',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+    'icon_url' => 'dashicons-rest-api',
+	));
+
+endif;
 
 
 ?>

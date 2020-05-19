@@ -9,7 +9,7 @@ register_post_type( 'equipa',
         'add_new_item' => 'Adicionar membro',
       ),
       'public' => true,
-      'has_archive' => true,
+      'has_archive' => false,
       'menu_icon' => 'dashicons-buddicons-buddypress-logo',
       'rewrite' => array('slug' => 'equipa'),
       'supports' => array('title', 'page-attributes')

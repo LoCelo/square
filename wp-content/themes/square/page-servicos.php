@@ -6,12 +6,13 @@ get_header();
 
 <style media="screen">
 
+.all-services {
+  padding: 85px;
+}
+
 .all-services a img {
     opacity: 0.85;
     filter: grayscale(0);
-  }
-
-  .all-services a {
   }
 
   .service-all-shape:nth-child(1) img,
@@ -157,7 +158,7 @@ $projetos = new WP_Query($args);
             <div class="col-md-6 project-wrapper">
               <a href="<?php echo get_the_permalink(get_the_ID()); ?>">
                 <figure class="thumb">
-                  <?php echo get_the_post_thumbnail(get_the_ID(), 'medium_large'); ?>
+                  <?php echo get_the_post_thumbnail(get_the_ID(), 'projetos-thumb'); ?>
                 </figure>
                 <strong><?php echo get_field('client', get_the_ID()); ?></strong>
                 <h3><?php echo get_the_title(get_the_ID()); ?></h3>

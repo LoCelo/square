@@ -11,9 +11,6 @@ $members = get_posts([
 	'order' => 'ASC'
 ]);
 
-$text = get_field('hero_text', $post->ID);
-$hero_text = strip_tags($text);
-
 include('partials/hero.php');
 ?>
 
@@ -43,8 +40,6 @@ include('partials/hero.php');
 					<li class="nav-item">
   			    <a class="nav-link <?php if ($key == 0): echo 'active'; else: echo ''; endif; ?>" id="<?php echo $name ?>-tab" data-toggle="tab" href="#<?php echo $name; ?>" role="tab" aria-controls="<?php echo $name; ?>" aria-selected="<?php if ($key == 0): echo 'active'; else: echo ''; endif; ?>"><?php echo $member->title; ?>
 							<figure>
-								<div class="paint">
-								</div>
 								<?php
 								echo wp_get_attachment_image(get_field('first_photo', $member->ID), 'equipa', false, array('class' => 'first-photo'));
 
@@ -73,22 +68,22 @@ include('partials/hero.php');
 			</div>
 		</div>
 	</div>
-	<div class="row partners">
+	<!-- <div class="row partners">
 			<div class="col-md-12 text-center mt-5 mb-5">
 					<h3 class="tax-title">This is our<span class="red"> partners </span></h3>
 				</div>
 				<div class="col-md-12 partners-wrapper">
 					<?php
-						$parceiros = get_field('parceiros', $post->ID);
-
-						foreach ($parceiros as $key => $parceiro) : ?>
-							<a href=<?php echo $parceiro['link']; ?> class="partner">
-								<img src="<?php echo $parceiro['parceiro']; ?>" alt="partner" width="60">
+						// $parceiros = get_field('parceiros', $post->ID);
+						//
+						// foreach ($parceiros as $key => $parceiro) : ?>
+						// 	<a href=<?php// echo $parceiro['link']; ?> class="partner">
+						// 		<img src="<?php// echo $parceiro['parceiro']; ?>" alt="partner" width="60">
 							</a>
-						<?php endforeach; ?>
+						<?php// endforeach; ?>
 
 				</div>
-	</div>
+	</div> -->
 </div>
 
 
@@ -103,8 +98,6 @@ if (width < 758) {
 	        scrollTop: jQuery(".tab-content").offset().top
 	    }, 2000);
 	});
-
-
 
 }
 })
