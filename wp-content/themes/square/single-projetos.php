@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12 content">
+      <div class="col-md-12 content single-content">
       <?php
         echo apply_filters('the_content', get_the_content(get_the_ID()));
       ?>

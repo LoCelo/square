@@ -16,7 +16,20 @@
       <div class="col-md-12 content single-content">
       <?php
         echo apply_filters('the_content', get_the_content(get_the_ID()));
-      ?>
+        $relateds = get_field('related', $post->ID);
+        if (!empty($relateds)) : ?>
+          <p class="mt-4"><strong>You might be interested in:</strong></p>
+          <ul>
+        <?php
+        foreach ($relateds as $key => $related) :
+          $id = url_to_postid($related);
+        ?>
+          <li><p><a href="<?php echo $related; ?>"><?php echo get_the_title($id); ?></a></p></li>
+        <?php
+        endforeach;
+        ?>
+      </ul>
+    <?php endif; ?>
       </div>
     </div>
     <div class="row">

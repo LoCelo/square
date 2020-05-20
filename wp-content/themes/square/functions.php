@@ -21,8 +21,8 @@ function theme_js() {
 add_action('wp_enqueue_scripts', 'theme_js');
 
 add_theme_support( 'post-thumbnails' );
-add_image_size('equipa', 290, 282, false);
-add_image_size('projetos_thumb', 540, 303, true);
+add_image_size('square_team', 259, 380, false);
+add_image_size('projetos_thumb', 540, 302, true);
 
 add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
@@ -107,7 +107,7 @@ function my_mce_before_init_insert_formats( $init_array ) {
     ),
     array(
     	'title' => 'Highlight',
-    	'block' => 'strong',
+    	'block' => 'span',
     	'classes' => 'highlight',
     	'exact' => false
     ),

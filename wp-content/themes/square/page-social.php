@@ -18,12 +18,15 @@ $posts = get_posts([
 ?>
 
 
-        <div class="container posts content">
+        <div class="container <?php if(!empty(get_field('feed_shortcode', $post->ID))): echo 'feed'; else: echo 'posts'; endif; ?> content">
             <div class="row">
               <div class="col-md-12 mb-5 text-center">
                 <h3 class="tax-title">Our posts</h3>
               </div>
             </div>
+            <?php if (!empty(get_field('feed_shortcode', $post->ID))):
+              echo get_field('feed_shortcode', $post->ID);
+            else: ?>
               <?php
                 foreach ($posts as $key => $square_post): ?>
                   <div class="row post mt-5 mb-5">
@@ -43,6 +46,7 @@ $posts = get_posts([
                   </div>
               <?php
                 endforeach;
+              endif;
               ?>
           <div class="row">
             <div class="col-md-12 text-center mb-5 mt-5">

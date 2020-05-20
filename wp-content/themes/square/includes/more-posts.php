@@ -20,7 +20,7 @@ if ($projetos->have_posts()):?>
           <div class="col-md-6 project-wrapper">
             <a href="<?php echo get_the_permalink(get_the_ID()); ?>">
               <figure class="thumb">
-                <?php echo get_the_post_thumbnail(get_the_ID(), 'projetos-thumb'); ?>
+                <?php echo get_the_post_thumbnail(get_the_ID(), 'projetos_thumb'); ?>
               </figure>
               <strong><?php echo get_field('client', get_the_ID()); ?></strong>
               <h3><?php echo get_the_title(get_the_ID()); ?></h3>

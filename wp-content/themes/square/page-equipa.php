@@ -39,14 +39,18 @@ include('partials/hero.php');
 					?>
 					<li class="nav-item">
   			    <a class="nav-link <?php if ($key == 0): echo 'active'; else: echo ''; endif; ?>" id="<?php echo $name ?>-tab" data-toggle="tab" href="#<?php echo $name; ?>" role="tab" aria-controls="<?php echo $name; ?>" aria-selected="<?php if ($key == 0): echo 'active'; else: echo ''; endif; ?>"><?php echo $member->title; ?>
-							<figure>
+							<figure class="thumb-team">
 								<?php
-								echo wp_get_attachment_image(get_field('first_photo', $member->ID), 'equipa', false, array('class' => 'first-photo'));
+								if (!empty(get_field('second_photo', $member->ID))) :
+									$class = 'first-photo';
+								else:
+									$class = 'photo';
+								endif;
+
+								echo wp_get_attachment_image(get_field('first_photo', $member->ID), 'square_team', false, array('class' => $class));
 
 								if (!empty(get_field('second_photo', $member->ID))) :
-									echo wp_get_attachment_image(get_field('second_photo', $member->ID), 'equipa', false, array('class' => 'second-photo'));
-								else:
-									echo wp_get_attachment_image(get_field('first_photo', $member->ID), 'equipa', false, array('class' => 'first-photo'));
+									echo wp_get_attachment_image(get_field('second_photo', $member->ID), 'square_team', false, array('class' => 'second-photo'));
 								endif;
 								?>
 

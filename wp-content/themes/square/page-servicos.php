@@ -77,13 +77,20 @@ get_header();
   }
 
   .service-all-shape.shape-3 a h3 {
-    margin-top: 35%;
-    margin-left: 49%;
+    margin-top: 33%;
+    margin-left: 44%;
   }
 
   .service-all-shape.shape-2 a h3 {
-    margin-top: 44%;
-    margin-left: 47%;
+    margin-top: 43%;
+    margin-left: 43%;
+  }
+
+  @media only screen  and (max-width : 1000px) {
+    .service-all-shape a h3 {
+      font-size: 27px !important;
+    }
+
   }
 
 </style>
@@ -155,10 +162,10 @@ $projetos = new WP_Query($args);
           <?php
             while ( $projetos->have_posts() ) : $projetos->the_post(); ?>
 
-            <div class="col-md-6 project-wrapper">
+            <div class="col-md-6 project-wrapper mt-3 mb-3">
               <a href="<?php echo get_the_permalink(get_the_ID()); ?>">
                 <figure class="thumb">
-                  <?php echo get_the_post_thumbnail(get_the_ID(), 'projetos-thumb'); ?>
+                  <?php echo get_the_post_thumbnail(get_the_ID(), 'projetos_thumb'); ?>
                 </figure>
                 <strong><?php echo get_field('client', get_the_ID()); ?></strong>
                 <h3><?php echo get_the_title(get_the_ID()); ?></h3>

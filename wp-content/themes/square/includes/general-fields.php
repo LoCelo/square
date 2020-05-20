@@ -252,7 +252,7 @@ acf_add_local_field_group(array(
 		),
 	),
 	'menu_order' => 0,
-	'position' => 'acf_after_title',
+	'position' => -1,
 	'style' => 'seamless',
 	'label_placement' => 'top',
 	'instruction_placement' => 'label',
@@ -531,25 +531,6 @@ acf_add_local_field_group(array(
 	'title' => 'Article Fields',
 	'fields' => array(
 		array(
-			'key' => 'field_5ec277d6b30f6',
-			'label' => 'Subtitle',
-			'name' => 'subtitle',
-			'type' => 'textarea',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'maxlength' => '',
-			'rows' => 5,
-			'new_lines' => 'br',
-		),
-		array(
 			'key' => 'field_5ec276d89c1f6',
 			'label' => 'Author',
 			'name' => 'author',
@@ -568,6 +549,27 @@ acf_add_local_field_group(array(
 			'append' => '',
 			'maxlength' => '',
 		),
+		array(
+		'key' => 'field_5ec567972216c',
+		'label' => 'You might be interested',
+		'name' => 'related',
+		'type' => 'page_link',
+		'instructions' => '',
+		'required' => 0,
+		'conditional_logic' => 0,
+		'wrapper' => array(
+			'width' => '',
+			'class' => '',
+			'id' => '',
+		),
+		'post_type' => array(
+			0 => 'post',
+		),
+		'taxonomy' => '',
+		'allow_null' => 0,
+		'allow_archives' => 0,
+		'multiple' => 1,
+	),
 	),
 	'location' => array(
 		array(

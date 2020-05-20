@@ -114,12 +114,6 @@ function typeWriter(id, ar) {
   }
 }
 
-jQuery(".scroll").click(function() {
-    jQuery([document.documentElement, document.body]).animate({
-        scrollTop: jQuery(".content").offset().top
-    }, 2000);
-});
-
 }
 
 }else{
@@ -128,8 +122,13 @@ jQuery(".scroll").click(function() {
   var textoHigh = jQuery(".hero strong");
   setTimeout(function(){ textoHigh.toggleClass('highlight') }, speed);
 
-
 }
+
+jQuery(".scroll").click(function() {
+    jQuery([document.documentElement, document.body]).animate({
+        scrollTop: jQuery(".content").offset().top
+    }, 2000);
+});
 
 var burger = document.querySelector('#nav-icon3');
 var menu = document.querySelector('.main-menu-wrapper');

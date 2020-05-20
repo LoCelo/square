@@ -33,7 +33,7 @@ $projetos = get_posts([
     <div class="service-details">
       <h2 style="color: <?php echo get_field('title_color', $term); ?>">
         <img src="<?php echo get_field('shape', $term); ?>" alt="" class="shape-mobile">
-        <?php echo $term->name; ?></h2>
+        <?php echo get_field('display_title', $term); ?></h2>
       <p><?php echo get_field('descricao', $term); ?></p>
     </div>
   </div>
@@ -47,9 +47,9 @@ $projetos = get_posts([
       foreach ($projetos as $key => $projeto) : ?>
 
       <div class="col-md-6 project-wrapper">
-        <a href="<?php echo get_the_permalink(get_the_ID()); ?>">
+        <a href="<?php echo get_the_permalink($projeto->ID); ?>">
           <figure class="thumb">
-            <?php echo get_the_post_thumbnail($projeto->ID); ?>
+            <?php echo get_the_post_thumbnail($projeto->ID, 'projetos-thumb'); ?>
           </figure>
           <strong><?php echo get_field('client', $projeto->ID); ?></strong>
           <h3><?php echo get_the_title($projeto->ID); ?></h3>

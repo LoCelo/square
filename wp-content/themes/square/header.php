@@ -45,4 +45,4 @@ if($invert == 'yes'){
     </div>
   </div>
 </header>
-<body class="<?php if(is_tax() || is_page_template('page-servicos.php')): echo 'tax-page'; elseif($invert == 'yes'): echo 'invert-body'; elseif(is_page(744)): echo 'menu-white';endif; ?>" >
+<body class="<?php if(is_tax() || is_page_template('page-servicos.php')): echo 'tax-page'; elseif($invert == 'yes' ): echo 'invert-body'; elseif(is_page(744)): echo 'menu-white';endif; ?>" >

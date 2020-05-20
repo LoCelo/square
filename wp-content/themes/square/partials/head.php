@@ -83,21 +83,21 @@ endif;
           background-position: -100% 0%;
           background-size: 1px 2px;
           font-family: hero;
-          transition: background-size 7s, background-position 7s ease-in .7s;
-          -moz-transition: background-size .7s, background-position .7s ease-in .7s;
-          -ms-transition: background-size .7s, background-position .7s ease-in .7s;
-          -o-transition: background-size .7s, background-position .7s ease-in .7s;
-          -webkit-transition: background-size .7s, background-position .7s ease-in .7s;
+          transition: background-size 1.1s, background-position 1.1s ease-in 1.1s;
+          -moz-transition: background-size 1.1s, background-position 1.1s ease-in 1.1s;
+          -ms-transition: background-size 1.1s, background-position 1.1s ease-in 1.1s;
+          -o-transition: background-size 1.1s, background-position 1.1s ease-in 1.1s;
+          -webkit-transition: background-size 1.1s, background-position 1.1s ease-in 1.1s;
         }
 
         .hero strong.highlight {
           background-size: 100% 100%;
           background-position: 0% 0%;
-          transition: background-size 7s, background-position 7s ease-in .7s;
-          -moz-transition: background-size .7s, background-position .7s ease-in .7s;
-          -ms-transition: background-size .7s, background-position .7s ease-in .7s;
-          -o-transition: background-size .7s, background-position .7s ease-in .7s;
-          -webkit-transition: background-size .7s, background-position .7s ease-in .7s;
+          transition: background-size 1.1s, background-position 1.1s ease-in 1.1s;
+          -moz-transition: background-size 1.1s, background-position 1.1s ease-in 1.1s;
+          -ms-transition: background-size 1.1s, background-position 1.1s ease-in 1.1s;
+          -o-transition: background-size 1.1s, background-position 1.1s ease-in 1.1s;
+          -webkit-transition: background-size 1.1s, background-position 1.1s ease-in 1.1s;
         }
 
         .posts {
@@ -134,6 +134,10 @@ endif;
           font-family: text !important;
         }
 
+        .single-content {
+          min-height: 200px;
+        }
+
         .single-content a {
           color: #F63C3B;
         }
@@ -148,33 +152,60 @@ endif;
           text-decoration: none;
         }
 
+        .tab-pane .highlight {
+          font-size: 24px;
+        }
+
+        .nav-tabs .nav-item {
+          width: 33%;
+        }
+
+        .nav-tabs .nav-link {
+          border: none !important;
+          padding: 0;
+        }
+
+        .nav-tabs .nav-item figure {
+          border-radius: 0;
+          max-height: unset;
+          margin-bottom: 0;
+        }
+
+        .invert-body .social-elevator a {
+          background: <?php echo get_field('hero_color', $post->ID); ?> !important;
+        }
+        .invert-body .social-elevator a:nth-child(1) {
+          background: white !important;
+        }
+        .invert-body .social-elevator a img {
+          filter: invert(0);
+        }
+
+        .invert-body .social-elevator a:nth-child(1) img {
+          filter: invert(1);
+        }
+
+        .thumb-team {
+          max-height: 240px !important;
+          overflow: hidden;
+        }
+
+        .social-links {
+          padding-left: 0;
+        }
+
       </style>
       <?php
         $invert = get_field('invert_logo_color', $post->ID); ?>
 
 
-      <?php  if ( is_page(774) || $invert == 'yes') {?>
+      <?php  if ($invert == 'yes') {?>
           <style>
-          .social-elevator a {
-            background: <?php echo get_field('hero_color', $post->ID); ?> !important;
-          }
-          .social-elevator a:nth-child(1) {
-            background: white !important;
-          }
-          .socail-elevator a img {
-            filter: invert(1);
-          }
-
-          .socail-elevator a img {
-            filter: invert(0);
-          }
-          <?php
-          if($invert == 'yes'){ ?>
             .menu li.current_page_item a {
               color: black;
             }
           </style>
-          <?php } } ?>
+          <?php } ?>
 
 
 
