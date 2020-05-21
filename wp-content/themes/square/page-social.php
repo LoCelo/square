@@ -68,4 +68,5 @@ $posts = get_posts([
             </div>
           </div>
         </div>
+        <?php include 'partials/newsletter.php'; ?>
 <?php get_footer(); ?>

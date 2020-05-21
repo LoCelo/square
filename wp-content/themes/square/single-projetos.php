@@ -25,7 +25,27 @@
       ?>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-12 text-center mb-5 mt-5">
+        <h3 class="tax-title">Fan of our ecossystem and vibe? <br>
+          <span class="red">Follow us</span></h3>
+          <ul class="social-links">
+          <?php
+          $links = get_field('social_links', 753);
+
+          foreach ($links as $key => $social) { ?>
+
+            <li><a href="<?php echo $social['link'];?>" target="_blank" rel="noopener">
+              <img src="<?php echo $social['icon']; ?>" alt="icon_social" width="45">
+            </a></li>
+
+        <?php  }
+          ?>
+        </ul>
+      </div>
+    </div>
 </div>
+<?php include 'partials/newsletter.php'; ?>
 
 
 <?php get_footer(); ?>

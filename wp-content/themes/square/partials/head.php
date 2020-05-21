@@ -194,6 +194,56 @@ endif;
           padding-left: 0;
         }
 
+        .newsletter-wrapper p{
+          width: 40%;
+          display: inline-block;
+          margin-bottom: 0;
+        }
+
+        .newsletter-wrapper p:nth-child(3){
+          width: 15%;
+        }
+
+        .newsletter-wrapper p input {
+          padding: 10px;
+          font-family: text;
+          border: transparent;
+          color: #2B2B2B;
+        }
+
+        ::placeholder {
+          color: lightgray;
+        }
+
+        .newsletter-wrapper p input:focus {
+          outline: none;
+        }
+
+        .newsletter-wrapper input[type="submit"] {
+          border: none;
+          outline: none;
+          background: #F63C3B;
+          font-family: hero;
+          padding: 10px 0;
+          color: white;
+          margin-top: 2px;
+          font-size: 1rem;
+        }
+
+        .newsletter-wrapper input[type="submit"]:hover {
+          background: #2B2B2B;
+        }
+
+        .newsletter-wrapper label {
+          width: 100%;
+          margin-bottom: 0;
+        }
+
+        .newsletter-wrapper input {
+          width: 100%
+        }
+
+
       </style>
       <?php
         $invert = get_field('invert_logo_color', $post->ID); ?>
