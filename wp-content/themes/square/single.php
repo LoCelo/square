@@ -51,7 +51,8 @@
         </ul>
       </div>
     </div>
+    <?php include 'partials/newsletter.php'; ?>
 </div>
-<?php include 'partials/newsletter.php'; ?>
+
 
 <?php get_footer(); ?>
