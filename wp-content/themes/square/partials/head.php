@@ -41,6 +41,14 @@ endif;
         ?>
 
       <style media="screen">
+        .red, .tax-title .red, body .red {
+          color: #F63C3B;
+        }
+
+        .menu li.current_page_item a {
+          color: #F63C3B;
+        }
+
         a:hover {
           cursor: pointer
         }
@@ -241,6 +249,47 @@ endif;
 
         .newsletter-wrapper input {
           width: 100%
+        }
+
+        @media only screen  and (max-width : 1000px) {
+          .service-all-shape a h3 {
+            font-size: 27px !important;
+          }
+
+          .service-details {
+            padding-top: 30%;
+            margin-left: 18%;
+          }
+
+          .tax-img-wrapper {
+            left: 0;
+          }
+
+          .service-shape {
+            width: 100%;
+          }
+
+          .service-shape img {
+            width: 90%;
+          }
+
+          .info-tax-container .col-md-6 {
+            flex: 0 0 67%;
+            max-width: 67%;
+          }
+
+          .single-thumb img,
+          .single-content img  {
+            width: 100%;
+            height: auto;
+          }
+
+        }
+
+        @media only screen  and (max-width : 758px) {
+          .social-elevator{
+            display: none;
+          }
         }
 
 

@@ -93,6 +93,46 @@ get_header();
 
   }
 
+
+</style>
+<style media="screen">
+@media only screen  and (max-width : 758px) {
+  .social-elevator{
+    display: none;
+  }
+
+  .all-services {
+    padding: 35px;
+  }
+
+  .service-all-shape a h3 {
+    margin-top: 35% !important;
+    margin-left: 25% !important;
+    font-size: 30px !important;
+  }
+
+  .service-all-shape.col-md-12.text-center.shape-0 {
+    left: 0;
+  }
+
+  .service-all-shape.col-md-6.shape-1 {
+    right: 0;
+  }
+
+  .service-all-shape img {
+    width: 100% !important;
+  }
+
+  .service-all-shape.col-md-6.shape-2 {
+    top: -30px;
+    right: 0;
+  }
+
+  .service-all-shape.col-md-12.text-center.shape-3 {
+    right: 0;
+    margin-top: -20% !important;
+  }
+}
 </style>
 
 <?php
