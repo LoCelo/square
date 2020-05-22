@@ -46,10 +46,10 @@ $projetos = get_posts([
     if (!empty($projetos)) :
       foreach ($projetos as $key => $projeto) : ?>
 
-      <div class="col-md-6 project-wrapper">
+      <div class="col-md-6 project-wrapper mt-3 mb-3">
         <a href="<?php echo get_the_permalink($projeto->ID); ?>">
           <figure class="thumb">
-            <?php echo get_the_post_thumbnail($projeto->ID, 'projetos-thumb'); ?>
+            <?php echo get_the_post_thumbnail($projeto->ID, 'projetos_thumb'); ?>
           </figure>
           <strong><?php echo get_field('client', $projeto->ID); ?></strong>
           <h3><?php echo get_the_title($projeto->ID); ?></h3>
